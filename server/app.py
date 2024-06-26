@@ -10,14 +10,14 @@ def index():
 
 @app.route('/print/<string:parameter>')
 def print_string(parameter):
-    return f'<h1>{parameter}</h1>'
+    return parameter
 
 @app.route('/count/<int:parameter>')
 def count(parameter):
     nums=''
-    for i in range(parameter):
+    for i in range(parameter + 1):
         nums += str(i) + '<br>'
-    return f'<h1>{nums}</h1>'
+    return f'{nums}'
    
 
 @app.route('/math/<int:num1>/<string:operation>/<int:num2>')
@@ -33,7 +33,7 @@ def math(num1,operation,num2):
     elif operation == "%":
         answer= num1%num2
     
-    return f'<h1>{answer}</h1'
+    return f'{answer}'
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
