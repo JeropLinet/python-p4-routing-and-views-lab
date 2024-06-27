@@ -10,16 +10,17 @@ def index():
 
 @app.route('/print/<string:parameter>')
 def print_string(parameter):
-    return parameter
+    print(parameter)
+    return f'{parameter}'
 
 @app.route('/count/<int:parameter>')
 def count(parameter):
-    nums=''
-    for i in range(parameter + 1):
-        nums += str(i) + '<br>'
-    return f'{nums}'
+    nums=range(parameter)
+    answer=''
+    for num in nums:
+        answer += f'{num}\n'
+    return answer
    
-
 @app.route('/math/<int:num1>/<string:operation>/<int:num2>')
 def math(num1,operation,num2):
     if operation == "+":
